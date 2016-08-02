@@ -61,7 +61,31 @@ List.prototype = {
         Insert a new Node at the head of the list.
     */
     insertAtHead: function(data) {
+        new_node = this.makeNode();
         // Enter code here!
+        //make new node
+        //check if empty
+        //it is
+        //set start/next to null
+        //set start.data to data
+        //set end to new node
+ 
+        if(this.start === null) {
+            // start becomes a node
+            this.start = new_node;
+            this.start.next = null;
+            this.start.data =data;
+
+        }
+        //it is not
+        //start.next = start
+         //set start.data to data
+         //save to temporary node 
+        else {
+            new_node.next=this.start;
+            new_node.data= data;
+            this.start=new_node;
+        } 
     },
 
     /*
@@ -125,7 +149,7 @@ List.prototype = {
     delete: function(data) {
         // Enter code here!
     }
-}
+};
 
 
 /* LinkedList initialization */
@@ -133,6 +157,10 @@ var LinkedList = new List();
 var i = 2;
 while(i <= 20) {
     LinkedList.addAtEnd(i);
+    i+=2;
+}
+while (i<=40){
+    LinkedList.insertAtHead(i);
     i+=2;
 }
 
